@@ -21,4 +21,8 @@ public class BookRepository {
     public List<BookDTO> findAll(){ // 조회 결과가 여러개 일때 selectList
         return sql.selectList("Book.findAll");
     }
+    public  BookDTO findBook1(Long bookId) {//service로 부터 bookId 받음
+        return sql.selectOne("Book.findBook1", bookId); // mapper로 넘김
+    }
+
 }

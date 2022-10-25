@@ -26,4 +26,10 @@ public class BookService {
     public List<BookDTO> findAll(){
         return bookRepository.findAll();
     }
+    public BookDTO findBook1(Long bookId){ // bookId를 받고
+
+        return bookRepository.findBook1(bookId); // repository로 넘김.
+    }
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.icia.student.dto.BookDTO;
 import com.icia.student.service.BookService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,13 +17,13 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/save")
+    @GetMapping("/save") //save 주소로 넘어가는 역할
     public String saveform(){
         return "bookSave";
     }
 
 
-    @PostMapping("/save")
+    @PostMapping("/save")//입력값을 입력받는 역할
     public String save(@ModelAttribute BookDTO bookDTO) {
     boolean result= bookService.save(bookDTO);
     if(result){
@@ -32,7 +33,7 @@ public class BookController {
     }
     }
 
-    @GetMapping("/findBook") // 어떤 대상을 보여줘야할때는 Model을 씀
+    @GetMapping("/findBook")
     public String findBook(Model model){
       BookDTO findResult= bookService.findBook();
        model.addAttribute("book",findResult);
@@ -43,5 +44,11 @@ public class BookController {
         List<BookDTO> bookList = bookService.findAll();
         model.addAttribute("bookList",bookList);
         return "bookList";
+    }
+    @GetMapping("/book")
+    public String findBook1(@RequestParam("bookId") Long bookId,Model model){ // model : 파라미터를 담는 그릇
+        BookDTO findResult = bookService.findBook1(bookId);
+        model.addAttribute("book",findResult);
+        return "findBook";
     }
 }
