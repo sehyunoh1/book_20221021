@@ -6,10 +6,13 @@
 <mapper namespace="Book">
     <insert id="save" parameterType="book">
         insert into book_table(bookName,bookAuthor,bookPrice,bookPublisher)
-        values (#{bookNAme},#{bookAuthor},#{bookPrice},#{bookPublisher})
+        values (#{bookName},#{bookAuthor},#{bookPrice},#{bookPublisher})
     </insert>
     <select id="findBook" resultType="book">
-        select * from book_table where bookId=2
+      select * from book_table where bookId=2
+    </select>
+    <select id="findAll" resultType="book">
+        select * from book_table
     </select>
 </mapper>
 

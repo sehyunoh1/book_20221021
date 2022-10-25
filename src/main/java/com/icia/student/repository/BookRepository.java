@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BookRepository {
     @Autowired
@@ -13,7 +15,10 @@ public class BookRepository {
         return sql.insert("Book.save", bookDTO);
     }
 
-    public BookDTO findBook(){
+    public BookDTO findBook(){ // 조회결과가 하나일때 selectOne
         return sql.selectOne("Book.findBook");
+    }
+    public List<BookDTO> findAll(){ // 조회 결과가 여러개 일때 selectList
+        return sql.selectList("Book.findAll");
     }
 }

@@ -13,7 +13,7 @@
 <body>
 <h2> 조회 결과</h2> <%-- java get 호출로 값을 나타냄 --%>
     <h4>bookDTO객체:${book}</h4>
-    <h5> 번호: ${book.bookIdId}</h5>
+    <h5> 번호: ${book.bookId}</h5>
     <h5> 제목: ${book.bookName}</h5>
     <h5> 저자: ${book.bookAuthor}</h5>
     <h5> 가격: ${book.bookPrice}</h5>

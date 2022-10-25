@@ -14,6 +14,4 @@ public class BookDTO {
     private int BookPrice;
     private String BookPublisher;
 
-
-
 }
